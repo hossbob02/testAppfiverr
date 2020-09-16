@@ -1,0 +1,33 @@
+<div class="container">
+    <h3 style="text-align:center;">Login</h3>
+    <br>
+    <br>
+    <form #f="ngForm" (ngSubmit)="signin(f)">
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: white;">Email:</label>
+            <input ngModel type="email"  name="email" #email="ngModel" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required email>
+            <div class="alert alert-danger" *ngIf="email.touched && email.errors?.required">Email is required</div>
+            <div class="alert alert-danger" *ngIf="email.touched && email.errors?.email">Your Email doesn't match email format</div>
+          </div>
+          <div class="form-group">
+              <label for="formGroupPasswordInput" style="color: white;">Password:</label>
+              <input ngModel type="password"  #password="ngModel" name="password" class="form-control" id="formGroupPasswordInput" placeholder="Password" required minlength="8">
+              <div class="alert alert-danger" *ngIf="password.touched && password.errors?.required">password is required</div>
+              <div class="alert alert-danger" *ngIf="password.touched && password.errors?.minlength">Your password should be 8+ carateres</div>
+        
+          </div>
+        
+            <div class="form-group">
+                <button class="btn btn-success" style="width:100%" [disabled]="f.invalid">Login With Email/Pass</button>
+            </div>
+            <h4 style="text-align: center;">Or</h4>
+            <div class="form-group">
+                <button class="btn btn-danger" style="width:100%; margin-top: 3px;" (click)="google()">Login With Google</button>
+            </div>
+            <h4 style="text-align: center;">Or</h4>
+            <div class="form-group">
+                <button class="btn btn-primary" style="width:100%; margin-top: 3px;" (click)="facebook()">Login With facebook</button>
+            </div>
+      </form>
+
+</div>

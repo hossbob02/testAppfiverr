@@ -1,0 +1,25 @@
+<div class="container">
+    <h3 style="text-align:center;">Register</h3>
+    <br>
+    <br>
+    <form #f="ngForm" (ngSubmit)="signup(f)">
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: white;">Email:</label>
+            <input ngModel type="email"  name="email" #email="ngModel" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required email>
+            <div class="alert alert-danger" *ngIf="email.touched && email.errors?.required">Email is required</div>
+            <div class="alert alert-danger" *ngIf="email.touched && email.errors?.email">Your Email doesn't match email format</div>
+          </div>
+          <div class="form-group">
+              <label for="formGroupPasswordInput" style="color: white;">Password:</label>
+              <input ngModel type="password"  #password="ngModel" name="password" class="form-control" id="formGroupPasswordInput" placeholder="Password" required minlength="8">
+              <div class="alert alert-danger" *ngIf="password.touched && password.errors?.required">password is required</div>
+              <div class="alert alert-danger" *ngIf="password.touched && password.errors?.minlength">Your password should be 8+ carateres</div>
+        
+          </div>
+        
+       
+            <button class="btn btn-success" [disabled]="f.invalid">Sign up</button>
+            <div class="alert alert-danger" *ngIf="message">{{message}}</div>
+      </form>
+
+</div>

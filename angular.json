@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "testAppfiverr"
+    }
+  },
+  "defaultProject": "testAppfiverr",
+  "cli": {
+    "analytics": false
+  }
 }
