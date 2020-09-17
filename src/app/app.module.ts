@@ -7,10 +7,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { ArticlesComponent } from './articles/articles.component';
-import {AngularFireModule} from 'angularfire2';
-import {AngularFireAuthModule} from 'angularfire2/auth';
-import { environment } from '../environments/environment.prod';
 import { FormsModule } from '@angular/forms';
+import { AddarticleComponent } from './addarticle/addarticle.component';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -19,14 +21,17 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     SignupComponent,
     SigninComponent,
-    ArticlesComponent
+    ArticlesComponent,
+    AddarticleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+  AngularFireAuthModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

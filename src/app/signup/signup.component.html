@@ -19,7 +19,8 @@
         
        
             <button class="btn btn-success" [disabled]="f.invalid">Sign up</button>
-            <div class="alert alert-danger" *ngIf="message">{{message}}</div>
+            <div class="alert alert-success" *ngIf="message">{{message}}</div>
+            <div class="alert alert-danger" *ngIf="errMessage">{{errMessage}}</div>
       </form>
 
 </div>

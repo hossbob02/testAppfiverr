@@ -15,7 +15,7 @@ export class NoauthService implements CanActivate {
       this.as.user.subscribe(user=>{
         if(!user) resolve(true)
         else{
-          this.router.navigate(['/articles'])
+          this.router.navigate(['/'])
           resolve(false)
         }
       })

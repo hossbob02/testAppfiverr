@@ -1,0 +1,23 @@
+
+
+<div class="container">
+    <br>
+    <br>
+    <form #f="ngForm" (ngSubmit)="addArticle(f)">
+        <div class="form-group">
+            <input ngModel type="text"  name="titre" #titre="ngModel" class="form-control" id="exampleFormControlInput1" placeholder="titre" required>
+            <div class="alert alert-danger" *ngIf="titre.touched && titre.errors?.required">titre is required</div>
+          </div>
+          <div class="form-group">
+            <input ngModel type="text"  name="descriptions" #descriptions="ngModel" class="form-control" id="exampleFormControlInput1" placeholder="descriptions" required>
+            <div class="alert alert-danger" *ngIf="descriptions.touched && descriptions.errors?.required">description is required</div>
+          </div>
+          <div class="alert alert-success" *ngIf="message">{{message}}</div>
+          <div class="alert alert-danger" *ngIf="errMessage">{{errMessage}}</div>
+
+          <div class="form-group">
+            <button class="btn btn-success" style="width:100%" [disabled]="f.invalid">Add article</button>
+        </div>
+            
+      </form>
+</div>

@@ -9,17 +9,21 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   isUser:boolean
-  constructor(private as:AuthService,private routes:Router) { }
+  constructor(private as:AuthService,private route:Router) { }
 
   ngOnInit(): void {
     this.as.user.subscribe(user=>{
-      if(user){this.isUser=true}
-      else{this.isUser=false}
-
+      if(user){this.isUser=true
+      this.as.userId=user.uid
+      }
+      else {this.isUser=false
+      this.as.userId=''
+      }
     })
   }
 logout(){
-  this.as.logout()
-  this.routes.navigate(['/signin'])
+  this.as.logout().then(()=>{
+    this.route.navigate(['/signin'])
+  })
 }
 }

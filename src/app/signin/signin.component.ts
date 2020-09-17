@@ -15,11 +15,11 @@ export class SigninComponent implements OnInit {
   }
   signin(f){
     let data=f.value
-    this.as.signin(data.email,data.password).then(res=>{
-      console.log('login')
-      this.routes.navigate(['/articles'])
-    })
+   this.as.signin(data.email,data.password).then(()=>{
+     this.routes.navigate(['/'])
+   })
   }
+  
   google(){
     this.as.google().then(res=>{
       this.routes.navigate(['/articles'])
